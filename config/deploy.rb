@@ -8,7 +8,7 @@ set :deploy_via, :copy
 set :keep_releases, 2
 
 set :log_level, :debug
-set :pty, true
+set :pty, false
 
 set :rvm1_ruby_version, 'ruby-2.3.3'
 set :rvm_type, :user
@@ -46,7 +46,6 @@ namespace :deploy do
   end
 
   before 'deploy:migrate', 'deploy:create_db'
-  after :finished, 'deploy:seed'
   after :finished, 'app:restart'
 end
 

@@ -5,6 +5,7 @@ app_path = '/home/deployer/www/project'
 directory "#{app_path}/current"
 rackup "#{app_path}/current/config.ru"
 daemonize true
+stdout_redirect 'log/puma.log', 'log/puma_error.log', true
 pidfile "#{app_path}/shared/tmp/pids/puma.pid"
 state_path "#{app_path}/shared/tmp/puma.state"
 workers 2
